@@ -1,0 +1,23 @@
+services:
+  test_grpc_service:
+    build:
+      context: .
+      dockerfile: Dockerfile-grpc
+    restart: "no"
+    networks:
+      - test_lawly_grpc
+    env_file:
+      - .test_env
+
+  test_app:
+    restart: "no"
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    networks:
+      - test_lawly_grpc
+    env_file:
+      - .test_env
+
+networks:
+  test_lawly_grpc:
