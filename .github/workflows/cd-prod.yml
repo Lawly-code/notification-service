@@ -13,5 +13,5 @@ jobs:
       run: |
         cd /home/lawly-prod/notification-service
         git fetch --all
-        git reset --hard origin/master
-        docker compose up -d --build
+        git reset --hard origin/main
+        docker compose -f docker-compose.prod.yml -p prod up -d --build
